@@ -1,0 +1,71 @@
+<div class="outer">
+  <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="register()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput formControlName="userName">
+      <mat-error *ngIf="signUpForm.get('userName')?.touched && signUpForm.get('userName')?.invalid">
+        Please enter a valid username
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password"
+      >
+      <mat-error *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid">
+        Please enter a valid Password
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name">
+      <mat-error *ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.invalid">
+        Please enter a valid Name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Mobile Number</mat-label>
+      <input type="tel" matInput formControlName="MNumber">
+      <mat-error *ngIf="signUpForm.get('MNumber')?.touched && signUpForm.get('MNumber')?.invalid">
+        Please enter a valid Number
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Date of Birth</mat-label>
+      <input type="date" matInput formControlName="dob">
+      <mat-error *ngIf="signUpForm.get('dob')?.touched && signUpForm.get('dob')?.invalid">
+        Please select birthday
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" >
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+      <mat-error *ngIf="signUpForm.get('gender')?.touched && signUpForm.get('gender')?.invalid">
+        Please select a gender
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Language</mat-label>
+      <mat-select formControlName="language">
+        <mat-option value="Sinhala">Sinhala</mat-option>
+        <mat-option value="English">English</mat-option>
+        <mat-option value="Tamil">Tamil</mat-option>
+      </mat-select>
+      <mat-error *ngIf="signUpForm.get('language')?.touched && signUpForm.get('language')?.invalid">
+        Please select a language
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="signUpForm.invalid" mat-raised-button class="sign-in-button" onclick="register()">Register</button>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  </form>
+  <div class="reg-wrap">
+    <h6 style="font-size:small; color: #019992" class="business-name">
+      Already have an account?<a routerLinkActive="activate-route" routerLink="/auth/login/access">Login</a>
+    </h6>
+  </div>
+
+</div>
+
+

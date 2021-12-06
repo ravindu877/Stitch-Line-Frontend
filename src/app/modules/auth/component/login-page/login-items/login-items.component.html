@@ -1,0 +1,27 @@
+<div class="outer">
+  <div>
+    <h5 style="font-weight: bold; font-size:medium; color: #019992; margin-bottom: 20px ">Log in</h5>
+  </div>
+  <form class="example-form" [formGroup]="loginForm">
+    <mat-form-field class="example-full-width">
+      <mat-label >Username</mat-label>
+      <input class="mat-field" type="text" matInput formControlName="username">
+      <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+        Please enter a valid username
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label >Password</mat-label>
+      <input class="mat-field" type="password" matInput  formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        Please enter a valid Password
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="loginForm.invalid" mat-raised-button class="sign-in-button" (click)="login()">Sign in</button>
+  </form>
+  <div class="reg-wrap">
+    <h6 style="font-size:small; color: #019992" class="business-name">
+      Don't have an account?<a routerLinkActive="activate-route" routerLink="/auth/login/register">Register</a>
+    </h6>
+  </div>
+</div>
